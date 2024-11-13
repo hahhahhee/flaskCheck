@@ -31,4 +31,8 @@
    ```bash
    pip install -r requirements.txt
 
+## 시연 영상1 (메모 입력하기)
+<video src="https://github.com/user-attachments/assets/e6562829-1785-456b-accc-156fd6b521b1" width="700" height="370" autoplay muted>
 
+## 시연 영상2 (메모 수정 및 삭제하기)
+<video src="https://github.com/user-attachments/assets/08188fa2-c841-4c43-8539-e027d008f61b" width="700" height="370" autoplay muted>
