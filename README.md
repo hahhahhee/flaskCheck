@@ -1,6 +1,6 @@
-# Flask Todo List Project (실습)
+# Flask Todo List Project
 
-이 프로젝트(실습)는 **Flask** 웹 프레임워크와 **MongoDB** 데이터베이스를 사용하여 간단한 Todo List 애플리케이션을 구현한 예제입니다. 
+이 프로젝트는 **Flask** 웹 프레임워크와 **MongoDB** 데이터베이스를 사용하여 간단한 Todo List 애플리케이션을 구현한 예제입니다. 
 사용자는 할 일 목록을 추가하고, 완료 상태를 변경하며, 항목을 삭제하거나 수정할 수 있습니다.
 
 ## 기능
