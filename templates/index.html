@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+  <div class="card text-center">
+    <h5 class="card-header">메모를 입력하세요</h5>
+    <div class="card-body">
+      <form action="/action" method="POST">
+        {{ form.csrf_token }}
+        <div class="input mb-2 w-75 mx-auto">
+          {{ form.content(class="form-control", placeholder="메모를 입력하세요") }}
+        </div>
+        <div class="input-group mb-3 w-75 mx-auto">
+          <select class="form-select" name="primary">
+            <option selected disabled>중요도 선택</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <button class="btn btn-outline-secondary" type="submit">추가</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card text-center">
+    <h5 class="card-header">{{ stat }}</h5>
+    <div class="card-body">
+      {% include "list.html" %}
+    </div>
+  </div>
+</body>
+{% endblock %}

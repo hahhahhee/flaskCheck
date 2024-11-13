@@ -1,0 +1,57 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">상태</th>
+      <th scope="col">내용</th>
+      <th scope="col">#</th>
+      <th scope="col">삭제</th>
+      <th scope="col">변경</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for todo in todolist %}
+    <tr>
+      <td class="align-middle">
+        <a href="./done?_id={{todo['_id']}}"><input type="image" src="../static/images/{{ todo['done'] }}.png" width="30" alt="submit Me"></a>
+      </td>
+      <td width="60%">
+        <strong>{{ todo["contents"] }}</strong><br>
+        -{{ todo["date"].strftime("%Y-%m-%d") }}
+      </td>
+      {% if todo["primary"]=="Low" %}
+      <td class="align-middle"><span class="badge text-bg-secondary align-middle p-2">{{ todo["primary"] }}</span></td>
+      {% elif todo["primary"]=="Medium" %}
+      <td class="align-middle"><span class="badge text-bg-success align-middle p-2">{{ todo["primary"] }}</span></td>
+      {% elif todo["primary"]=="High" %}
+      <td class="align-middle"><span class="badge text-bg-warning align-middle p-2">{{ todo["primary"] }}</span></td>
+      {% else %}
+      <td class="align-middle"><span class="badge text-bg-danger align-middle p-2">{{ todo["primary"] }}</span></td>
+      {% endif %}
+      <td class="align-middle">
+        <i class="bi bi-trash" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+      </td>
+      <!-- Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteModalLabel">삭제 경고</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              정말로 삭제하시겠습니까?
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn btn-secondary" href="./delete?_id={{todo['_id']}}">삭제</a>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <td class="align-middle">
+        <a href="./update?_id={{todo['_id']}}"><i class="bi bi-pencil"></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

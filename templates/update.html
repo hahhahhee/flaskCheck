@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+  <div class="card text-center">
+    <h5 class="card-header">메모를 수정하세요</h5>
+    <div class="card-body">
+      <form action="/action2" method="POST">
+        {{ form.csrf_token }}
+        <input type="hidden" name="_id" value="{{ task['_id'] }}">
+        <div class="input mb-2 w-75 mx-auto">
+          {{ form.content(class="form-control", placeholder=task['contents'], value=task['contents']) }}
+        </div>
+        <div class="input-group mb-3 w-75 mx-auto">
+          <select class="form-select" name="primary">
+            <option selected value="{{ task['primary'] }}">{{ task['primary'] }}</option>
+            <option value="None">None</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <button class="btn btn-outline-secondary" type="submit">수정</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock %}
